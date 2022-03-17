@@ -23,11 +23,10 @@ export class TodoService{
       new Todo(0, "Buy a new gaming laptop"),
       new Todo(1, "Complete a previous task"),
       new Todo(2, "Create a video for Youtube"),
-      new Todo(3, "Create a video for Youtube"),
-      new Todo(4, "Create a new portfolio site")
+      new Todo(3, "Create a new portfolio site")
     ];
 
-    this.nextId = 5;
+    this.nextId = 4;
   }
 
   public addTodo(text: string): void {
