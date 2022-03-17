@@ -4,18 +4,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    background: linear-gradient(360deg, rgb(60,212,255,1) 8%, rgb(29, 192, 224) 35%, rgba(0,212,255,1) 100%);    
 }
 .todo-wrapper {
-    width: 22em;
-    height: 34em; 
+    width: 24em;
+    height: 28em; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     border-radius: 8px;
     overflow-y: auto;
+    background-color: white;
 }
 
 .todo-over {

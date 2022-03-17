@@ -8,6 +8,8 @@ import { InputComponent } from './components/input/input.component';
 import { ItemComponent } from './components/item/item.component';
 import { TodoService } from './services/todo.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChangecolorDirective } from './shared/changecolor.directive';
+import { SecchangecolorDirective } from './shared/secchangecolor.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     InputComponent,
     ItemComponent,
-    FooterComponent
+    FooterComponent,
+    ChangecolorDirective,
+    SecchangecolorDirective
   ],
   imports: [
     BrowserModule,

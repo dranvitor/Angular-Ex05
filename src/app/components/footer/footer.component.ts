@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  public removeAllTodo(): void {
+  removeAllTodo(): void {
     this.todoService.removeAllTodo();
   }
 

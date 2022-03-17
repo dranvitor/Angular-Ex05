@@ -5,17 +5,7 @@ import { Todo } from '../classes/todo';
 export class TodoService{
 
   todos: Todo[];
-  private nextId: number;
-
-   ngOnInit(): void {
-    let todos = this.getTodos();
-
-    if (todos.length == 0) {
-      this.nextId = 5;
-    } else {
-      let maxId = todos[todos.length-1].id;
-      this.nextId = maxId + 1; }
-    }
+  nextId: number;
 
   constructor() {
     
@@ -29,30 +19,34 @@ export class TodoService{
     this.nextId = 4;
   }
 
-  public addTodo(text: string): void {
+  addTodo(text: string): void {
     let todo = new Todo(this.nextId, text);
     this.todos.push(todo);
     this.nextId++;
+    this._storeData();
+
   }
 
-   public getTodos(): Todo [] {
+  getTodos(): Todo [] {
   return this.todos
   }
 
-  public removeTodo(id: number): void {
+  removeTodo(id: number): void {
     this.todos = this.todos.filter((todo)=> todo.id != id);
+    this._storeData();
+
   }
 
-  public removeAllTodo():void {
+  removeAllTodo():void {
     let todos = this.getTodos();
     
    this.todos = this.todos.filter((todo)=> !todo);
 
-  this.setLocalStorageTodos(todos);
+  this._storeData();
   } 
 
-  private setLocalStorageTodos(todos: Todo[]): void {
-    localStorage.setItem('todos', JSON.stringify({ todos: todos }));
-}
+   _storeData(){
+    localStorage.setItem('stored', JSON.stringify(this.todos));
+  }
 
 }

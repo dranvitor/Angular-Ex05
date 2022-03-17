@@ -18,7 +18,7 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  public removeTodo(): void {
+   removeTodo(): void {
     this.todoService.removeTodo(this.todo.id);
   }
 

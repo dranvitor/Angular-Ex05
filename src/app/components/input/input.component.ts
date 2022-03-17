@@ -8,7 +8,7 @@ import { TodoService } from '../../services/todo.service';
 })
 export class InputComponent implements OnInit {
 
-  public todoText: string;
+  todoText: string;
 
   constructor(public todoService: TodoService) {
     this.todoText = '';
@@ -17,7 +17,7 @@ export class InputComponent implements OnInit {
   ngOnInit() {
   }
 
-  public addTodo(): void {
+   addTodo(): void {
     this.todoService.addTodo(this.todoText);
     this.todoText = '';
   }
