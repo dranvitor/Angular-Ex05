@@ -8,7 +8,7 @@ import { TodoService } from '../../services/todo.service';
 })
 export class InputComponent implements OnInit {
 
-  todoText: string;
+ todoText: string;
 
   constructor(public todoService: TodoService) {
     this.todoText = '';

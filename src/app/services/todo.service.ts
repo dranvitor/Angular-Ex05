@@ -4,8 +4,12 @@ import { Todo } from '../classes/todo';
 @Injectable()
 export class TodoService{
 
-  todos: Todo[];
+  todos: Todo[] = [];
   nextId: number;
+
+  ngOnInit(): void {
+    this.getTodos()
+  }
 
   constructor() {
     
@@ -23,30 +27,35 @@ export class TodoService{
     let todo = new Todo(this.nextId, text);
     this.todos.push(todo);
     this.nextId++;
-    this._storeData();
+    let stg = JSON.stringify(this.todos)
+    localStorage.setItem('Default:', stg)
+    this.getTodos();
 
   }
 
   getTodos(): Todo [] {
+    let storage = localStorage.getItem('Default:')
+    let str = JSON.parse(storage || '[]')
+    this.todos  = str  
   return this.todos
   }
 
   removeTodo(id: number): void {
     this.todos = this.todos.filter((todo)=> todo.id != id);
-    this._storeData();
+    let stg = JSON.stringify(this.todos)
+    localStorage.setItem('Default:', stg)
+    this.getTodos();
 
   }
 
   removeAllTodo():void {
     let todos = this.getTodos();
-    
-   this.todos = this.todos.filter((todo)=> !todo);
+   this.todos = this.todos.filter((todo)=>
+    !todo);
+    let stg = JSON.stringify(this.todos)
+    localStorage.setItem('Default:', stg)
 
-  this._storeData();
+  this.getTodos();
   } 
-
-   _storeData(){
-    localStorage.setItem('stored', JSON.stringify(this.todos));
-  }
 
 }
