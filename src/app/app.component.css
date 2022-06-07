@@ -1,10 +1,10 @@
 .app{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(360deg, rgb(60,212,255,1) 8%, rgb(29, 192, 224) 35%, rgba(0,212,255,1) 100%);    
+    background-image: url("..//assets/abstract-modern-cool-geometric-pattern-background-vector.webp");
 }
 .todo-wrapper {
     width: 24em;
